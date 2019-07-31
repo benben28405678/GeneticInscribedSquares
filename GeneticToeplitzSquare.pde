@@ -2,6 +2,9 @@
 GeneticToeplitzSquare
 
 A project initiated by Ben Myers on 7/30/19
+
+Available on GitHub (remote: square)
+https://github.com/benben28405678/GeneticInscribedSquares
 */
 
 // Sets up some initial values.
