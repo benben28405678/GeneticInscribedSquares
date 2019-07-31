@@ -23,6 +23,11 @@ public class Stage
   }
 }
 
+/*
+StageType is an enum that represents a different option set for the user.
+
+Initiated by Ben Myers on 7/31/19.
+*/
 public enum StageType {
   DRAW_CURVE_START,
   DRAW_CURVE_DURING
