@@ -21,6 +21,8 @@ public void setup() {
   frameRate(60);
 }
 
+public Stage activeStage = new Stage(StageType.DRAW_CURVE_START);
+
 // Runs each frame.
 public void draw() {
   // Fills the background with a white color.

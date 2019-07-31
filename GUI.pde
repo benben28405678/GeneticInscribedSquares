@@ -1,64 +1,44 @@
 /*
-Canvas is a class that manages GUI.
+Math is a class that performs certain mathematical computations.
 
 Initiated by Ben Myers on 7/31/19.
 */
-public class Canvas
-{
-  private ArrayList<CanvasComponent> components = new ArrayList<CanvasComponent>();
-  
-  public void register(CanvasComponent component) {
-    components.add(component);
-  }
-  
-  public void draw() {
-    for(CanvasComponent c: components) {
-      c.draw();
-    }
-  }
-}
-
-/*
-SnapType is a class that represents a different alignment option for CanvasComponents.
-
-Initiated by Ben Myers on 7/31/19.
-*/
-public enum SnapType {
-  CENTER,
-  TOP,
-  BOTTOM
-}
-
-/*
-CanvasComponent is an interface that defines a GUI class.
-
-Initiated by Ben Myers on 7/31/19.
-*/
-public abstract class CanvasComponent
+public class Button
 {
   public float x;
   public float y;
-  public SnapType snap;
+  public float w;
+  public float h;
   
-  public abstract void draw();
-}
-
-/*
-Button is a class that allows a user to click for input.
-
-Initiated by Ben Myers on 7/31/19.
-*/
-public class Button extends CanvasComponent
-{
+  public Button(PVector pos, float w, float h) {
+    x = pos.x;
+    y = pos.y;
+    this.w = w;
+    this.h = h;
+  }
   
-}
-
-/*
-Text is a class that allows a user to see text.
-
-Initiated by Ben Myers on 7/31/19.
-*/
-public class Text extends CanvasComponent
-{
+  // The delegate function for when the mouse is released while in the button.
+  public void mouseReleasedDelegate() {
+    if(!mouseInside()) return;
+  }
   
+  // The delegate function for when the mouse is pressed while in the button.
+  public void mousePressedDelegate() {
+    if(!mouseInside()) return;
+  }
+  
+  // The delegate function for when the mouse is pressed down while in the button.
+  public void mouseDownDelegate() {
+    if(!mouseInside()) return;
+  }
+  
+  // Returns true if the mouse pointer is inside the button and it is clicked.
+  public boolean isPressed() {
+    return mouseInside() && mousePressed;
+  }
+  
+  // Returns true if the mouse pointer is inside the button.
+  public boolean mouseInside() {
+    return mouseX < x + w/2 && mouseX > x - w/2 && mouseY > y - h/2 && mouseY < y + h/2;
+  }
 }
